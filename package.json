@@ -1,0 +1,23 @@
+{
+  "name": "rpi_file_server",
+  "version": "1.0.0",
+  "description": "Web based file server for Raspberry Pi",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gabe4s/rpi_file_server.git"
+  },
+  "author": "Gabe Douda",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gabe4s/rpi_file_server/issues"
+  },
+  "homepage": "https://github.com/gabe4s/rpi_file_server#readme"
+}
