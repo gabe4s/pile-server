@@ -5,4 +5,11 @@
         <link rel="stylesheet" href="../css/style.css">
         <title>RPi Server</title>
       </head>
+      <body>
+          <h1>RPi File Server</h1>
+          <div>
+              {{#dirs}}<div class="dir">{{dir}}</div>{{/dirs}}
+              {{#files}}<div class="file">{{file}}</div>{{/files}}
+          </div>
+      </body>
 </html>
