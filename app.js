@@ -19,11 +19,10 @@ app.use(bodyParser.urlencoded({
 
 app.get('/*', function(req, res) {
     var directoryName = BASE_DIR + req.url;
-    fileUtils.readDirectory(directoryName).then(
+    fileUtils.readDirectoryToObject(directoryName).then(
         function(directory) {
-            console.log(directory);
             res.status(200);
-            res.send(directory);
+            res.send(templateEngine.getRenderedTemplate(directory));
         }
     ).catch(
         function(err) {
