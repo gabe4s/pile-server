@@ -1,15 +1,34 @@
 <html>
-    <head>
-        <meta charset="UTF-8"/>
-        <link rel="shortcut icon" href="./img/favicon.ico" type="image/x-icon">
-        <link rel="stylesheet" href="./css/style.css">
-        <title>RPi Server</title>
-      </head>
-      <body>
-          <h1>RPi File Server</h1>
-          <div>
-              {{#dirs}}<div class="dir">{{dir}}</div>{{/dirs}}
-              {{#files}}<div class="file">{{file}}</div>{{/files}}
-          </div>
-      </body>
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="shortcut icon" href="./img/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="./css/style.css">
+    <title>RPi Server</title>
+</head>
+
+<body>
+    <h1>RPi File Server</h1>
+    <div>
+        <hr>
+
+        {{#dirs}}
+        <div class="directoryLine dir">
+            <img class="folderIcon" src="./img/folder-icon.png">
+            <div class="directoryItem">{{dir}}</div>
+        </div>
+        <hr>
+        {{/dirs}}
+
+        {{#files}}
+        <div class="directoryLine file">
+            <img class="fileIcon" src="./img/file-icon.png">
+            <div class="directoryItem">{{file}}</div>
+        </div>
+        <hr>
+        {{/files}}
+
+    </div>
+</body>
+
 </html>

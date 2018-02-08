@@ -1,0 +1,23 @@
+.directoryLine {
+    font-size: 26px;
+    line-height: 40px;
+    padding: 0px 12px;
+}
+
+.directoryItem {
+    padding-left: 8px;
+    display: inline-block;
+}
+
+.folderIcon, .fileIcon {
+    height: 32px;
+    vertical-align: middle;
+}
+
+.fileIcon {
+    padding-bottom: 6px;
+}
+
+.folderIcon {
+    padding-bottom: 6px;
+}
