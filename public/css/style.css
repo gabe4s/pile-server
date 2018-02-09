@@ -1,7 +1,16 @@
 .directoryLine {
+    box-sizing: border-box;
+    margin: 0px 12px;
     font-size: 26px;
-    line-height: 40px;
+    line-height: 50px;
     padding: 0px 12px;
+    cursor: pointer;
+    border-collapse: collapse;
+    border-top: 1px solid black;
+}
+
+.directoryLine:hover {
+    background-color: #dddddd;
 }
 
 .directoryItem {
