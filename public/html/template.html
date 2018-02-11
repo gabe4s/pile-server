@@ -13,14 +13,23 @@
     <h1>RPi File Server</h1>
     <div>
         {{#dirs}}
-        <div class="directoryLine dir" onclick="openFolder('{{dir}}');">
-            <img class="folderIcon" src="/img/folder-icon.png">
-            <div class="directoryItem">{{dir}}</div>
-        </div>
-        {{/dirs}}
 
-        {{#files}}
+        <div class="directoryLine dir">
+            <label class="checkboxContainer">
+                <input type="checkbox">
+                <span class="checkmark"></span>
+            </label>
+            <div class="directoryChunk" onclick="openFolder('{{dir}}');">
+                <img class="folderIcon" src="/img/folder-icon.png">
+                <div class="directoryItem">{{dir}}</div>
+            </div>
+        </div>
+        {{/dirs}} {{#files}}
         <div class="directoryLine file">
+            <label class="checkboxContainer">
+                <input type="checkbox">
+                <span class="checkmark"></span>
+            </label>
             <img class="fileIcon" src="/img/file-icon.png">
             <div class="directoryItem">{{file}}</div>
         </div>

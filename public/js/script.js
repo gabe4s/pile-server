@@ -10,3 +10,4 @@ function openFolder(folderName) {
     
     window.location.href = folderUrl;
 }
+
