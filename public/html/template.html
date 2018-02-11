@@ -16,7 +16,7 @@
 
         <div class="directoryLine dir">
             <label class="checkboxContainer">
-                <input type="checkbox">
+                <input type="checkbox" class="dirCheckbox" value="{{dir}}">
                 <span class="checkmark"></span>
             </label>
             <div class="directoryChunk" onclick="openFolder('{{dir}}');">
@@ -27,7 +27,7 @@
         {{/dirs}} {{#files}}
         <div class="directoryLine file">
             <label class="checkboxContainer">
-                <input type="checkbox">
+                <input type="checkbox" class="fileCheckbox" value="{{file}}">
                 <span class="checkmark"></span>
             </label>
             <img class="fileIcon" src="/img/file-icon.png">
