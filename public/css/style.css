@@ -1,3 +1,24 @@
+#newBtn {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 10px;
+    text-align: center;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    border-radius: 8px;
+    background-color: #008ae6;
+    color: white;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#newBtn:hover {
+    background-color: #1aa3ff;
+}
+
 .directoryLine {
     box-sizing: border-box;
     margin: 0px 12px;
@@ -69,7 +90,7 @@
 }
 
 .checkboxContainer input:checked ~ .checkmark {
-    background-color: #2196F3;
+    background-color: #008ae6;
 }
 
 .checkmark:after {
