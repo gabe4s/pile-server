@@ -4,12 +4,18 @@
     <meta charset="UTF-8" />
     <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="/css/style.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     <script src="/js/script.js"></script>
     <title>RPi Server</title>
 </head>
 
 <body>
-
+    <script>
+        $(document).ready(function(){
+            $('input:checkbox').prop('checked', false);
+        });
+    </script>
+    
     <div>
         <h1>RPi File Server</h1>
         <span id="newBtn">+</div>
