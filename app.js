@@ -7,7 +7,9 @@ var fileUtils = require("./lib/file-utils.js");
 
 var PORT = 8080;
 
-var BASE_DIR = "file_directory";
+var CONFIG = fileUtils.readFileToJson("config.json");
+
+var BASE_DIR = CONFIG.fileSystemDirectory || "pile_server_filesystem";
 
 var app = express();
 
