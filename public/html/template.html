@@ -11,7 +11,7 @@
 
 <body>
     <script>
-        $(document).ready(function(){
+        $(document).ready(function() {
             $('input:checkbox').prop('checked', false);
         });
     </script>
@@ -19,7 +19,7 @@
     <div>
         <h1>RPi File Server</h1>
         <label>
-            <form id="file-upload-form">
+            <form id="file-upload-form" action="/_fileupload" method="post">
                 <input type="hidden" name="directoryName" value="{{#directoryName}}">
                 <input id="file-upload-input" type="file" multiple="true"/>
                 <span id="newBtn">+</span>
