@@ -18,7 +18,13 @@
     
     <div>
         <h1>RPi File Server</h1>
-        <span id="newBtn">+</div>
+        <label>
+            <form id="file-upload-form">
+                <input type="hidden" name="directoryName" value="{{#directoryName}}">
+                <input id="file-upload-input" type="file" multiple="true"/>
+                <span id="newBtn">+</span>
+            </form>
+        </label>
     </div>
 
     <div>
@@ -45,6 +51,14 @@
         {{/files}}
         <div class="directoryLine"></div>
     </div>
+    <script>
+        $(document).ready(function(){
+            // If the user selects their file in the UI, go ahead and upload it
+            $('#file-upload-input').change(function() {
+                $('#file-upload-form').submit();
+            });
+        });
+    </script>
 </body>
 
 </html>
