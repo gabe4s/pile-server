@@ -23,10 +23,16 @@ app.use(bodyParser.urlencoded({
   extended: true
 }));
 
+app.post('/_fileupload', function(req, res) {
+    handleIncomingFile(req, req.body.directoryName);
+    res.redirect(req.body.directoryName);
+});
+
 app.get('/*', function(req, res) {
     var directoryName = BASE_DIR + req.url;
     fileUtils.readDirectoryToObject(directoryName).then(
         function(directory) {
+            directory.directoryName = directoryName;
             res.render("template", directory);
         }
     ).catch(
@@ -40,3 +46,4 @@ app.get('/*', function(req, res) {
 
 console.log("Server listening on port " + PORT);
 app.listen(PORT);
+

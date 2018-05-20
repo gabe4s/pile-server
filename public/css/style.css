@@ -114,3 +114,11 @@
     -ms-transform: rotate(45deg);
     transform: rotate(45deg);
 }
+
+/*
+ * For custom file input buttons.
+ */
+input[type="file"] {
+    display: none;
+}
+
