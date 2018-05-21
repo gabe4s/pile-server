@@ -13,15 +13,18 @@
     <script>
         $(document).ready(function() {
             $('input:checkbox').prop('checked', false);
+
+            $("#fileUploadInput").change(function() {
+                $("#fileUploadForm").submit();
+            });
         });
     </script>
     
     <div>
         <h1>RPi File Server</h1>
         <label>
-            <form id="file-upload-form" action="/_fileupload" method="post">
-                <input type="hidden" name="directoryName" value="{{#directoryName}}">
-                <input id="file-upload-input" type="file" multiple="true"/>
+            <form id="fileUploadForm" action="{{url}}" method="post" enctype="multipart/form-data">
+                <input type="file" name="fileUpload" id="fileUploadInput"/>
                 <span id="newBtn">+</span>
             </form>
         </label>
@@ -51,14 +54,6 @@
         {{/files}}
         <div class="directoryLine"></div>
     </div>
-    <script>
-        $(document).ready(function(){
-            // If the user selects their file in the UI, go ahead and upload it
-            $('#file-upload-input').change(function() {
-                $('#file-upload-form').submit();
-            });
-        });
-    </script>
 </body>
 
 </html>
