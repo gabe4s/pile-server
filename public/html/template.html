@@ -12,11 +12,21 @@
 <body>
     <script>
         $(document).ready(function() {
-            $('input:checkbox').prop('checked', false);
+            $("input:checkbox").prop("checked", false);
 
             $("#fileUploadInput").change(function() {
                 $("#fileUploadForm").submit();
             });
+        });
+
+        $(document).on("click", "input:checkbox", function() {
+            if($("input:checkbox:checked").length > 0) {
+                $(uploadBtn).hide();
+                $(deleteBtn).show();
+            } else {
+                $(uploadBtn).show();
+                $(deleteBtn).hide(); 
+            }
         });
     </script>
     
@@ -25,7 +35,8 @@
         <label>
             <form id="fileUploadForm" action="{{url}}" method="post" enctype="multipart/form-data">
                 <input type="file" name="fileUpload" id="fileUploadInput"/>
-                <span id="newBtn">+</span>
+                <span class="actionBtn" id="uploadBtn">+</span>
+                <span class="actionBtn" id="deleteBtn">-</span>
             </form>
         </label>
     </div>

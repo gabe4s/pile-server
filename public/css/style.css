@@ -1,4 +1,23 @@
-#newBtn {
+#uploadBtn {
+    background-color: #008ae6;
+    line-height: 40px;
+}
+
+#uploadBtn:hover {
+    background-color: #1aa3ff;
+}
+
+#deleteBtn {
+    display: none; /* Start delete button hidden */
+    background-color: #cc0000;
+    line-height: 32px;
+}
+
+#deleteBtn:hover {
+    background-color: #e60000;
+}
+
+.actionBtn {
     position: absolute;
     top: 0;
     right: 0;
@@ -6,17 +25,11 @@
     text-align: center;
     width: 40px;
     height: 40px;
-    line-height: 40px;
     border-radius: 8px;
-    background-color: #008ae6;
     color: white;
     font-size: 40px;
     font-weight: bold;
     cursor: pointer;
-}
-
-#newBtn:hover {
-    background-color: #1aa3ff;
 }
 
 .directoryLine {
