@@ -1,2 +1,2 @@
-# pile_server
+# pile-server
 Simple web based file server for Raspberry Pi

@@ -1,5 +1,5 @@
 {
-  "name": "pile_server",
+  "name": "pile-server",
   "version": "1.0.0",
   "description": "Web based file server for Raspberry Pi",
   "main": "app.js",
@@ -15,12 +15,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/gabe4s/pile_server.git"
+    "url": "git+https://github.com/gabe4s/pile-server.git"
   },
   "author": "Gabe Douda",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/gabe4s/pile_server/issues"
+    "url": "https://github.com/gabe4s/pile-server/issues"
   },
-  "homepage": "https://github.com/gabe4s/pile_server#readme"
+  "homepage": "https://github.com/gabe4s/pile-server#readme"
 }
