@@ -9,7 +9,7 @@ var PORT = 8080;
 
 var CONFIG = fileUtils.readFileToJson("config.json");
 
-var BASE_DIR = CONFIG.fileSystemDirectory || "pile_server_filesystem";
+var BASE_DIR = CONFIG.fileSystemDirectory;
 
 var app = express();
 
@@ -23,14 +23,6 @@ app.use(bodyParser.urlencoded({
   extended: true
 }));
 
-app.post("/*", function(req, res) {
-    var directoryName = BASE_DIR + req.url;
-    fileUtils.handleIncomingFile(req, directoryName).then(
-        function() {
-            res.redirect("back");
-        }
-    )
-});
 
 app.get("/*", function(req, res) {
     var directoryName = BASE_DIR + req.url;
@@ -48,6 +40,28 @@ app.get("/*", function(req, res) {
     )
 });
 
+app.post("/*", function(req, res) {
+    var directoryName = BASE_DIR + req.url;
+    fileUtils.handleIncomingFile(req, directoryName).then(
+        function() {
+            res.redirect("back");
+        }
+    )
+});
+
+app.delete("/delete", function(req, res) {
+    var checkedItems = req.body.checkedItems;
+
+    fileUtils.deleteCheckedItems(BASE_DIR, checkedItems).then(
+        function() {
+            res.sendStatus(200);
+        },
+        function(err) {
+            console.log("Error deleting items: " );
+        }
+    )
+    
+});
+
 console.log("Server listening on port " + PORT);
 app.listen(PORT);
-

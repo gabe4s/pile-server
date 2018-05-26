@@ -15,7 +15,7 @@ function openFolder(folderName) {
     window.location.href = getFullItemPath(folderName);
 }
 
-function getAllCheckedItemsWithFullPath() {
+function getAllCheckedItemsAsDirectoryWithFullPath() {
     var directory = {};
     directory.files = [];
     directory.dirs = [];
@@ -39,4 +39,32 @@ function getAllCheckedItemsWithFullPath() {
     );
 
     return directory;
+}
+
+function getAllCheckedItemsWithFullPath() {
+    var checkedItems = [];
+
+    $("input:checkbox:checked").each(
+        function(index, checkbox) {
+            checkedItems.push(getFullItemPath(checkbox.value));
+        }
+    )
+
+    return checkedItems;
+}
+
+function deleteCheckedItems() {
+    var checkedItemsData = 
+    {
+        "checkedItems": getAllCheckedItemsWithFullPath()
+    }
+
+    $.ajax({
+        url: "/delete",
+        method: "DELETE",
+        data: checkedItemsData,
+        success: function() {
+            location.reload();
+        }
+    });
 }

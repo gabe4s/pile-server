@@ -28,17 +28,21 @@
                 $(deleteBtn).hide(); 
             }
         });
+
+        $(document).on("click", "#uploadBtn", function() {
+            $("#fileUploadInput").trigger("click");
+        });
     </script>
     
     <div>
         <h1>RPi File Server</h1>
-        <label>
-            <form id="fileUploadForm" action="{{url}}" method="post" enctype="multipart/form-data">
-                <input type="file" name="fileUpload" id="fileUploadInput"/>
-                <span class="actionBtn" id="uploadBtn">+</span>
-                <span class="actionBtn" id="deleteBtn">-</span>
-            </form>
-        </label>
+
+        <form id="fileUploadForm" action="{{url}}" method="post" enctype="multipart/form-data">
+            <input type="file" name="fileUpload" id="fileUploadInput"/>
+        </form>
+
+        <span class="actionBtn" id="uploadBtn">+</span>
+        <span class="actionBtn" id="deleteBtn" onclick="deleteCheckedItems()">-</span>
     </div>
 
     <div>
