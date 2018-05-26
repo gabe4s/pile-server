@@ -1,3 +1,3 @@
 {
-    "fileSystemDirectory": "pile_server_filesystem"
+    "fileSystemDirectory": "/absolute/path/here"
 }
