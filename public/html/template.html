@@ -6,45 +6,11 @@
     <link rel="stylesheet" href="/css/style.css">
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     <script src="/js/script.js"></script>
+    <script src="/js/handlers.js"></script>
     <title>RPi Server</title>
 </head>
 
 <body>
-    <script>
-        $(document).ready(function() {
-            $("input:checkbox").prop("checked", false);
-
-            $("#fileUploadInput").change(function() {
-                $("#fileUploadForm").submit();
-            });
-        });
-
-        $(document).on("click", "input:checkbox", function() {
-            if($("input:checkbox:checked").length > 0) {
-                $(addBtn).hide();
-                $(deleteBtn).show();
-            } else {
-                $(addBtn).show();
-                $(deleteBtn).hide(); 
-            }
-        });
-
-        $(document).on("click", "#addBtn", function() {
-            $("#addDropdown").show();
-        });
-
-        $(document).on("mouseup", function (e){
-            var container = $("#addDropdown");
-            if (!container.is(e.target) && container.has(e.target).length === 0){
-                container.hide();
-            }
-        }); 
-
-        $(document).on("click", "#uploadBtn", function() {
-            $("#fileUploadInput").trigger("click");
-        });
-    </script>
-    
     <div>
         <h1>RPi File Server</h1>
 
@@ -55,13 +21,17 @@
         <div>
             <div class="actionContainer">
                 <span class="actionBtn" id="addBtn">+</span>
-                    <div id="addDropdown">
-                        <div id="newFolderBtn" class="addOption topElement">New Folder</div>
-                        <div id="uploadBtn" class="addOption">Upload File</div>
-                    </div>
+                <div id="addDropdown" class="dropdown">
+                    <div id="newFolderBtn" class="dropdownOption topElement">New Folder</div>
+                    <div id="uploadBtn" class="dropdownOption">Upload File</div>
+                </div>
             </div>
             <div class="actionContainer">
-                <span class="actionBtn" id="deleteBtn" onclick="deleteCheckedItems()">-</span>
+                <span class="actionBtn" id="changeBtn">-</span>
+                <div id="changeDropdown" class="dropdown">
+                    <div id="copyBtn" class="dropdownOption topElement">Copy</div>
+                    <div id="deleteBtn" class="dropdownOption">Delete</div>
+                </div>
             </div>
         </div>
     </div>
