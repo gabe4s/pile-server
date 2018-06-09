@@ -1,10 +1,39 @@
-#uploadBtn {
+#addBtn {
     background-color: #008ae6;
     line-height: 40px;
 }
 
-#uploadBtn:hover {
+#addBtn:hover {
     background-color: #1aa3ff;
+}
+
+#addDropdown {
+    width: 150px;
+    position: relative;
+    margin-top: 40px;
+    display: none;
+}
+
+.addOption {
+    background-color: #eeeeee;
+    width: 150px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    font-size: 20px;
+    border-width: 0px 1px 1px 1px;
+    border-color: black;
+    border-style: solid;
+    cursor: pointer;
+}
+
+.addOption:hover {
+    background-color: #cccccc;
+}
+
+.topElement {
+    border-top-width: 1px;
+    border-top-right-radius: 8px;
 }
 
 #deleteBtn {
@@ -17,12 +46,15 @@
     background-color: #e60000;
 }
 
-.actionBtn {
+.actionContainer {
     position: absolute;
     top: 0;
     right: 0;
     margin: 10px;
     text-align: center;
+}
+
+.actionBtn {
     width: 40px;
     height: 40px;
     border-radius: 8px;
@@ -30,6 +62,7 @@
     font-size: 40px;
     font-weight: bold;
     cursor: pointer;
+    float: right;
 }
 
 .directoryLine {
@@ -99,7 +132,7 @@
 }
 
 .checkboxContainer:hover input ~ .checkmark {
-    background-color: #ccc;
+    background-color: #cccccc;
 }
 
 .checkboxContainer input:checked ~ .checkmark {

@@ -21,13 +21,24 @@
 
         $(document).on("click", "input:checkbox", function() {
             if($("input:checkbox:checked").length > 0) {
-                $(uploadBtn).hide();
+                $(addBtn).hide();
                 $(deleteBtn).show();
             } else {
-                $(uploadBtn).show();
+                $(addBtn).show();
                 $(deleteBtn).hide(); 
             }
         });
+
+        $(document).on("click", "#addBtn", function() {
+            $("#addDropdown").show();
+        });
+
+        $(document).on("mouseup", function (e){
+            var container = $("#addDropdown");
+            if (!container.is(e.target) && container.has(e.target).length === 0){
+                container.hide();
+            }
+        }); 
 
         $(document).on("click", "#uploadBtn", function() {
             $("#fileUploadInput").trigger("click");
@@ -41,8 +52,18 @@
             <input type="file" name="fileUpload" id="fileUploadInput"/>
         </form>
 
-        <span class="actionBtn" id="uploadBtn">+</span>
-        <span class="actionBtn" id="deleteBtn" onclick="deleteCheckedItems()">-</span>
+        <div>
+            <div class="actionContainer">
+                <span class="actionBtn" id="addBtn">+</span>
+                    <div id="addDropdown">
+                        <div id="newFolderBtn" class="addOption topElement">New Folder</div>
+                        <div id="uploadBtn" class="addOption">Upload File</div>
+                    </div>
+            </div>
+            <div class="actionContainer">
+                <span class="actionBtn" id="deleteBtn" onclick="deleteCheckedItems()">-</span>
+            </div>
+        </div>
     </div>
 
     <div>
