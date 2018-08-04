@@ -31,11 +31,23 @@ $(document).on("click", "#changeBtn", function() {
 });
 
 $(document).on("click", "#uploadBtn", function() {
+    $("#addDropdown").hide();
     $("#fileUploadInput").trigger("click");
 });
 $(document).on("click", "#newFolderBtn", function() {
-    console.log("new folder clicked");
+    $("#addDropdown").hide();
+    $("#newFolderPopup").show();
 });
 $(document).on("click", "#deleteBtn", function() {
     deleteCheckedItems();
+});
+$(document).on("click", "#newFolderAdd", function() {
+    addFolder($("#newFolderInput").val());
+    $("#newFolderPopup").hide();
+    $("#newFolderInput").val("");
+
+});
+$(document).on("click", "#newFolderCancel", function() {
+    $("#newFolderPopup").hide();
+    $("#newFolderInput").val("");
 });

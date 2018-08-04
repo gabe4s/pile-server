@@ -16,6 +16,7 @@
 
         <form id="fileUploadForm" action="{{url}}" method="post" enctype="multipart/form-data">
             <input type="file" name="fileUpload" id="fileUploadInput"/>
+            <input type="hidden" name="uploadType" value="file"/>
         </form>
 
         <div>
@@ -63,9 +64,9 @@
 
     <div id="newFolderPopup">
         <h2 class="center">New Folder</h2>
-        <input type="text" placeholder="New Folder Name"/>
-        <div class="newFolderBtn" style="float: left;">Add</div>
-        <div class="newFolderBtn" style="float: right;">Cancel</div>
+        <input id="newFolderInput" type="text" placeholder="New Folder Name"/>
+        <div id="newFolderAdd" class="newFolderBtn" style="float: left;">Add</div>
+        <div id="newFolderCancel" class="newFolderBtn" style="float: right;">Cancel</div>
     </div>
 
 </body>

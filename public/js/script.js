@@ -68,3 +68,15 @@ function deleteCheckedItems() {
         }
     });
 }
+
+function addFolder(folderName) {
+    var folderData = 
+    {
+        "folderName": folderName
+    }
+    $.ajax({
+        url: "/",
+        method: "POST",
+        data: folderData
+    });
+}

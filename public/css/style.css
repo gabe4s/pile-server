@@ -2,7 +2,7 @@
     text-align: center;
 }
 
-input.middle:focus {
+input:focus {
     outline-width: 0;
 }
 
@@ -191,6 +191,7 @@ input[type="text"] {
     right: 0;
     bottom: 0;
     left: 0;
+    display: none;
 }
 
 #newFolderPopup > input {
@@ -201,7 +202,6 @@ input[type="text"] {
 .newFolderBtn {
     width: 100px;
     height: 40px;
-    border: 1px solid black;
     border-radius: 8px;
     display: inline-block;
     text-align: center;
@@ -214,4 +214,13 @@ input[type="text"] {
 
 .newFolderBtn:hover {
     background-color: #cccccc;
+}
+
+#newFolderAdd {
+    background-color: #008ae6;
+    color: white;
+}
+
+#newFolderAdd:hover {
+    background-color: #1aa3ff;
 }

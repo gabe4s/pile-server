@@ -43,17 +43,18 @@ app.get("/*", function(req, res) {
 app.post("/*", function(req, res) {
     var directoryName = BASE_DIR + req.url;
 
-    var type = req.param.type;
+    var type = req.body.uploadType;
+    console.log(req);
 
-    // if(type == "file") {
+    if(type == "folder") {
+
+    } else {
         fileUtils.handleIncomingFile(req, directoryName).then(
             function() {
                 res.redirect("back");
             }
         )
-    // } else if (type == "folder") {
-// 
-    // }
+    }
 
 
 });
