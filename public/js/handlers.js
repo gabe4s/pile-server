@@ -33,6 +33,9 @@ $(document).on("click", "#changeBtn", function() {
 $(document).on("click", "#uploadBtn", function() {
     $("#fileUploadInput").trigger("click");
 });
+$(document).on("click", "#newFolderBtn", function() {
+    console.log("new folder clicked");
+});
 $(document).on("click", "#deleteBtn", function() {
     deleteCheckedItems();
 });

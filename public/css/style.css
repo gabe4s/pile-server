@@ -1,3 +1,11 @@
+.center {
+    text-align: center;
+}
+
+input.middle:focus {
+    outline-width: 0;
+}
+
 #addBtn {
     background-color: #008ae6;
     line-height: 40px;
@@ -161,10 +169,49 @@
     transform: rotate(45deg);
 }
 
-/*
- * For custom file input buttons.
- */
 input[type="file"] {
     display: none;
 }
 
+input[type="text"] {
+    font-size: 20px;
+    margin: auto;
+    padding: 5px 10px;
+}
+
+#newFolderPopup {
+    width: 400px;
+    height: 190px;
+    background-color: #eeeeee;
+    border-radius: 8px;
+    border: 1px solid black;
+    position: absolute;
+    margin: auto;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+#newFolderPopup > input {
+    width: 350px;
+    margin: 0 25px;
+}
+
+.newFolderBtn {
+    width: 100px;
+    height: 40px;
+    border: 1px solid black;
+    border-radius: 8px;
+    display: inline-block;
+    text-align: center;
+    font-size: 20px;
+    line-height: 40px;
+    margin: 20px 45px;
+    cursor: pointer;
+    background-color: #dddddd;
+}
+
+.newFolderBtn:hover {
+    background-color: #cccccc;
+}

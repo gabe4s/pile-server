@@ -42,11 +42,20 @@ app.get("/*", function(req, res) {
 
 app.post("/*", function(req, res) {
     var directoryName = BASE_DIR + req.url;
-    fileUtils.handleIncomingFile(req, directoryName).then(
-        function() {
-            res.redirect("back");
-        }
-    )
+
+    var type = req.param.type;
+
+    // if(type == "file") {
+        fileUtils.handleIncomingFile(req, directoryName).then(
+            function() {
+                res.redirect("back");
+            }
+        )
+    // } else if (type == "folder") {
+// 
+    // }
+
+
 });
 
 app.delete("/delete", function(req, res) {
