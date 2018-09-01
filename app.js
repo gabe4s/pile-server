@@ -44,10 +44,11 @@ app.post("/*", function(req, res) {
     var directoryName = BASE_DIR + req.url;
 
     var type = req.body.uploadType;
-    console.log(req);
 
     if(type == "folder") {
-
+        var fullFolderPath = path.join(BASE_DIR + req.body.folderPath);
+        fileUtils.createFolder(fullFolderPath);
+        res.sendStatus(200);
     } else {
         fileUtils.handleIncomingFile(req, directoryName).then(
             function() {

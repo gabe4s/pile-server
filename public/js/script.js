@@ -72,11 +72,15 @@ function deleteCheckedItems() {
 function addFolder(folderName) {
     var folderData = 
     {
-        "folderName": folderName
+        "uploadType": "folder",
+        "folderPath": getFullItemPath(folderName)
     }
     $.ajax({
         url: "/",
         method: "POST",
-        data: folderData
+        data: folderData,
+        success: function() {
+            location.reload();
+        }
     });
 }
