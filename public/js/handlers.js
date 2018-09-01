@@ -42,12 +42,19 @@ $(document).on("click", "#deleteBtn", function() {
     deleteCheckedItems();
 });
 $(document).on("click", "#newFolderAdd", function() {
-    addFolder($("#newFolderInput").val());
-    $("#newFolderPopup").hide();
-    $("#newFolderInput").val("");
-
+    var newFolderName = $("#newFolderInput").val();
+    if(newFolderName.length > 0) {
+        addFolder(newFolderName);
+        $("#newFolderPopup").hide();
+        $("#newFolderInput").val("");
+    } else {
+        $("#newFolderInput").addClass("error");
+    }
 });
 $(document).on("click", "#newFolderCancel", function() {
     $("#newFolderPopup").hide();
     $("#newFolderInput").val("");
+});
+$(document).on("input", "#newFolderInput", function() {
+    $("#newFolderInput").removeClass("error");
 });

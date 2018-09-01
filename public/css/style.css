@@ -6,6 +6,10 @@ input:focus {
     outline-width: 0;
 }
 
+.error {
+    border-color: red !important;
+}
+
 #addBtn {
     background-color: #008ae6;
     line-height: 40px;
@@ -194,9 +198,12 @@ input[type="text"] {
     display: none;
 }
 
-#newFolderPopup > input {
+#newFolderInput {
     width: 350px;
     margin: 0 25px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #888888;
 }
 
 .newFolderBtn {
