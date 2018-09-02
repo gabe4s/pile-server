@@ -10,6 +10,7 @@ var PORT = 8080;
 var CONFIG = fileUtils.readFileToJson("config.json");
 
 var BASE_DIR = CONFIG.fileSystemDirectory;
+var SERVER_NAME = CONFIG.serverName || "R-Pi File Server";
 
 var app = express();
 
@@ -28,6 +29,7 @@ app.get("/*", function(req, res) {
     var directoryName = BASE_DIR + req.url;
     fileUtils.readDirectoryToObject(directoryName).then(
         function(directory) {
+            directory.serverName = SERVER_NAME;
             directory.url = req.url;
             res.render("template", directory);
         }

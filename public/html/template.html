@@ -7,12 +7,12 @@
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     <script src="/js/script.js"></script>
     <script src="/js/handlers.js"></script>
-    <title>RPi Server</title>
+    <title>{{serverName}}</title>
 </head>
 
 <body>
     <div>
-        <h1>RPi File Server</h1>
+        <h1>{{serverName}}</h1>
 
         <form id="fileUploadForm" action="{{url}}" method="post" enctype="multipart/form-data">
             <input type="file" name="fileUpload" id="fileUploadInput"/>
