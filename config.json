@@ -1,4 +1,4 @@
 {
     "serverName": "R-Pi File Server",
-    "fileSystemDirectory": "/home/gabe/pile_server_filesystem"
+    "fileSystemDirectory": "/absolute/path/to/folder"
 }
