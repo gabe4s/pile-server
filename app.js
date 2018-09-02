@@ -33,8 +33,7 @@ app.get("/*", function(req, res) {
             directory.serverName = SERVER_NAME;
             directory.url = req.url;
             res.render("template", directory);
-        }
-    ).catch(
+        },
         function(err) {
             console.log("ERROR: " + err);
             res.status(404);
