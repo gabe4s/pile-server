@@ -47,6 +47,14 @@ $(document).on("click", "#newFolderBtn", function() {
     $("#newFolderPopup").show();
     $("#newFolderInput").focus();
 });
+$(document).on("click", "#pasteBtn", function() {
+    $("#addDropdown").hide();
+    pasteItems();
+});
+$(document).on("click", "#cutBtn", function() {
+    $("#changeDropdown").hide();
+    storeCheckedItems();
+});
 $(document).on("click", "#deleteBtn", function() {
     deleteCheckedItems();
 });
@@ -60,6 +68,7 @@ $(document).on("click", "#newFolderAdd", function() {
         $("#newFolderInput").addClass("error");
     }
 });
+
 $(document).on("click", "#newFolderCancel", function() {
     $("#newFolderPopup").hide();
     $("#newFolderInput").val("");

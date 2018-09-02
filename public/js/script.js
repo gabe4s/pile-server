@@ -6,7 +6,7 @@ function getFullItemPath(item) {
     if(pathName[pathName.length-1] != "/") {
         fullItemPath += "/";
     }
-    fullItemPath += item;
+    fullItemPath += item || "";
 
     return fullItemPath;
 }
@@ -41,23 +41,27 @@ function getAllCheckedItemsAsDirectoryWithFullPath() {
     return directory;
 }
 
-function getAllCheckedItemsWithFullPath() {
-    var checkedItems = [];
+function getAllCheckedItemsAndPath() {
+    var itemsList = [];
+    var itemsPath = getFullItemPath();
 
     $("input:checkbox:checked").each(
         function(index, checkbox) {
-            checkedItems.push(getFullItemPath(checkbox.value));
+            itemsList.push(checkbox.value);
         }
     )
+
+    var checkedItems = 
+    {
+        "checkedItems": itemsList,
+        "checkedItemsPath": itemsPath
+    }
 
     return checkedItems;
 }
 
 function deleteCheckedItems() {
-    var checkedItemsData = 
-    {
-        "checkedItems": getAllCheckedItemsWithFullPath()
-    }
+    var checkedItemsData = getAllCheckedItemsAndPath();
 
     $.ajax({
         url: "/delete",
@@ -79,6 +83,27 @@ function addFolder(folderName) {
         url: "/",
         method: "POST",
         data: folderData,
+        success: function() {
+            location.reload();
+        }
+    });
+}
+
+function storeCheckedItems() {
+    localStorage.setItem("storedItems", JSON.stringify(getAllCheckedItemsAndPath()));
+}
+
+function getStoredItems() {
+    return JSON.parse(localStorage.getItem("storedItems"));
+}
+
+function pasteItems() {
+    var pasteData = getStoredItems();
+    pasteData.newLocation = getFullItemPath();
+    $.ajax({
+        url: "/move",
+        method: "PUT",
+        data: pasteData,
         success: function() {
             location.reload();
         }

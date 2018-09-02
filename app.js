@@ -26,6 +26,7 @@ app.use(bodyParser.urlencoded({
 
 
 app.get("/*", function(req, res) {
+    res.setHeader("Cache-Control", "no-cache, no-store");
     var directoryName = BASE_DIR + req.url;
     fileUtils.readDirectoryToObject(directoryName).then(
         function(directory) {
@@ -48,7 +49,7 @@ app.post("/*", function(req, res) {
     var type = req.body.uploadType;
 
     if(type == "folder") {
-        var fullFolderPath = path.join(BASE_DIR + req.body.folderPath);
+        var fullFolderPath = path.join(BASE_DIR, req.body.folderPath);
         fileUtils.createFolder(fullFolderPath);
         res.sendStatus(200);
     } else {
@@ -63,17 +64,39 @@ app.post("/*", function(req, res) {
 });
 
 app.delete("/delete", function(req, res) {
-    var checkedItems = req.body.checkedItems;
+    var checkedItemsList = req.body.checkedItems;
+    var checkedItemsPath = req.body.checkedItemsPath;
 
-    fileUtils.deleteCheckedItems(BASE_DIR, checkedItems).then(
+    var fullPath = path.join(BASE_DIR, checkedItemsPath);
+
+    fileUtils.deleteCheckedItems(fullPath, checkedItemsList).then(
         function() {
             res.sendStatus(200);
         },
         function(err) {
-            console.log("Error deleting items: " );
+            console.log("Error deleting items: " + err);
+            res.sendStatus(400);
         }
     )
     
+});
+
+app.put("/move", function(req, res) {
+    var checkedItemsList = req.body.checkedItems;
+    var checkedItemsPath = req.body.checkedItemsPath;
+    var newLocation = req.body.newLocation;
+
+    // Move items to new location
+    fileUtils.moveItems(BASE_DIR, checkedItemsPath, checkedItemsList, newLocation).then(
+        function() {
+            res.sendStatus(200);
+        },
+        function(err) {
+            console.log("Error moving items: " + err);
+            res.sendStatus(400);
+        }
+    )
+
 });
 
 console.log("Server listening on port " + PORT);
