@@ -45,14 +45,16 @@ app.get("/*", function(req, res) {
 app.post("/*", function(req, res) {
     var type = req.body.uploadType;
     
+    var fullReqUrl = path.join(BASE_DIR, req.url);
+
     if(type == "folder") {
-        var fullFolderPath = path.join(BASE_DIR, req.body.folderPath);
+        var fullFolderPath = fullReqUrl;
         fileUtils.createFolder(fullFolderPath);
         res.sendStatus(200);
     } else if(type == "move") {
         var checkedItemsList = req.body.checkedItems;
         var checkedItemsPath = req.body.checkedItemsPath;
-        var newLocation = req.body.newLocation;
+        var newLocation = req.url;
         
         fileUtils.moveItems(BASE_DIR, checkedItemsPath, checkedItemsList, newLocation).then(
             function() {
@@ -64,8 +66,7 @@ app.post("/*", function(req, res) {
             }
         )
     } else {
-        var directoryName = BASE_DIR + req.url;
-        fileUtils.handleIncomingFile(req, directoryName).then(
+        fileUtils.handleIncomingFile(req, fullReqUrl).then(
             function() {
                 res.redirect("back");
             }

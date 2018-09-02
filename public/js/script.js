@@ -76,11 +76,10 @@ function deleteCheckedItems() {
 function addFolder(folderName) {
     var folderData = 
     {
-        "uploadType": "folder",
-        "folderPath": getFullItemPath(folderName)
+        "uploadType": "folder"
     }
     $.ajax({
-        url: "/",
+        url: getFullItemPath(folderName),
         method: "POST",
         data: folderData,
         success: function() {
@@ -99,10 +98,9 @@ function getStoredItems() {
 
 function pasteItems() {
     var pasteData = getStoredItems();
-    pasteData.newLocation = getFullItemPath();
     pasteData.uploadType = "move";
     $.ajax({
-        url: "/move",
+        url: getFullItemPath(),
         method: "POST",
         data: pasteData,
         success: function() {
