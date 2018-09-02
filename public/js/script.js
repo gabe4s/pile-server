@@ -106,6 +106,7 @@ function pasteItems() {
         method: "POST",
         data: pasteData,
         success: function() {
+            localStorage.removeItem("storedItems");
             location.reload();
         }
     });
