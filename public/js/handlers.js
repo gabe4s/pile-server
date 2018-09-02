@@ -16,18 +16,26 @@ $(document).on("click", "input:checkbox", function() {
     }
 });
 
-$(document).on("mouseup", function (e){
+$(document).on("mouseup", function (event){
     var container = $(".dropdown");
-    if (!container.is(e.target) && container.has(e.target).length === 0){
+    if (!container.is(event.target) && container.has(event.target).length === 0 && !event.target.classList.contains("actionBtn")) {
         container.hide();
     }
 }); 
 
 $(document).on("click", "#addBtn", function() {
-    $("#addDropdown").show();
+    if($("#addDropdown").is(":hidden")) {
+        $("#addDropdown").show();
+    } else {
+        $("#addDropdown").hide();
+    }
 });
 $(document).on("click", "#changeBtn", function() {
-    $("#changeDropdown").show();
+    if($("#changeDropdown").is(":hidden")) {
+        $("#changeDropdown").show();
+    } else {
+        $("#changeDropdown").hide();
+    }
 });
 
 $(document).on("click", "#uploadBtn", function() {
@@ -37,6 +45,7 @@ $(document).on("click", "#uploadBtn", function() {
 $(document).on("click", "#newFolderBtn", function() {
     $("#addDropdown").hide();
     $("#newFolderPopup").show();
+    $("#newFolderInput").focus();
 });
 $(document).on("click", "#deleteBtn", function() {
     deleteCheckedItems();
@@ -54,6 +63,11 @@ $(document).on("click", "#newFolderAdd", function() {
 $(document).on("click", "#newFolderCancel", function() {
     $("#newFolderPopup").hide();
     $("#newFolderInput").val("");
+});
+$(document).on("keypress", "#newFolderInput", function(event) {
+    if(event.which == 13) {
+        $("#newFolderAdd").click();
+    }
 });
 $(document).on("input", "#newFolderInput", function() {
     $("#newFolderInput").removeClass("error");
