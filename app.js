@@ -86,7 +86,6 @@ app.put("/move", function(req, res) {
     var checkedItemsPath = req.body.checkedItemsPath;
     var newLocation = req.body.newLocation;
 
-    // Move items to new location
     fileUtils.moveItems(BASE_DIR, checkedItemsPath, checkedItemsList, newLocation).then(
         function() {
             res.sendStatus(200);

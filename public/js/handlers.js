@@ -21,7 +21,11 @@ $(document).on("mouseup", function (event){
     if (!container.is(event.target) && container.has(event.target).length === 0 && !event.target.classList.contains("actionBtn")) {
         container.hide();
     }
-}); 
+});
+
+$(document).on("click", ".dropdownOption", function() {
+    $(".dropdown").hide();
+});
 
 $(document).on("click", "#addBtn", function() {
     if($("#addDropdown").is(":hidden")) {
@@ -39,18 +43,16 @@ $(document).on("click", "#changeBtn", function() {
 });
 
 $(document).on("click", "#uploadBtn", function() {
-    $("#addDropdown").hide();
     $("#fileUploadInput").trigger("click");
 });
 $(document).on("click", "#newFolderBtn", function() {
-    $("#addDropdown").hide();
     $("#newFolderPopup").show();
     $("#newFolderInput").focus();
 });
 $(document).on("click", "#pasteBtn", function() {
-    $("#addDropdown").hide();
     pasteItems();
 });
+
 $(document).on("click", "#cutBtn", function() {
     $("#changeDropdown").hide();
     storeCheckedItems();
@@ -58,6 +60,7 @@ $(document).on("click", "#cutBtn", function() {
 $(document).on("click", "#deleteBtn", function() {
     deleteCheckedItems();
 });
+
 $(document).on("click", "#newFolderAdd", function() {
     var newFolderName = $("#newFolderInput").val();
     if(newFolderName.length > 0) {
@@ -68,7 +71,6 @@ $(document).on("click", "#newFolderAdd", function() {
         $("#newFolderInput").addClass("error");
     }
 });
-
 $(document).on("click", "#newFolderCancel", function() {
     $("#newFolderPopup").hide();
     $("#newFolderInput").val("");
