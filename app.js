@@ -44,15 +44,28 @@ app.get("/*", function(req, res) {
 });
 
 app.post("/*", function(req, res) {
-    var directoryName = BASE_DIR + req.url;
-
     var type = req.body.uploadType;
-
+    
     if(type == "folder") {
         var fullFolderPath = path.join(BASE_DIR, req.body.folderPath);
         fileUtils.createFolder(fullFolderPath);
         res.sendStatus(200);
+    } else if(type == "move") {
+        var checkedItemsList = req.body.checkedItems;
+        var checkedItemsPath = req.body.checkedItemsPath;
+        var newLocation = req.body.newLocation;
+        
+        fileUtils.moveItems(BASE_DIR, checkedItemsPath, checkedItemsList, newLocation).then(
+            function() {
+                res.sendStatus(200);
+            },
+            function(err) {
+                console.log("Error moving items: " + err);
+                res.sendStatus(400);
+            }
+        )
     } else {
+        var directoryName = BASE_DIR + req.url;
         fileUtils.handleIncomingFile(req, directoryName).then(
             function() {
                 res.redirect("back");
@@ -79,23 +92,6 @@ app.delete("/delete", function(req, res) {
         }
     )
     
-});
-
-app.put("/move", function(req, res) {
-    var checkedItemsList = req.body.checkedItems;
-    var checkedItemsPath = req.body.checkedItemsPath;
-    var newLocation = req.body.newLocation;
-
-    fileUtils.moveItems(BASE_DIR, checkedItemsPath, checkedItemsList, newLocation).then(
-        function() {
-            res.sendStatus(200);
-        },
-        function(err) {
-            console.log("Error moving items: " + err);
-            res.sendStatus(400);
-        }
-    )
-
 });
 
 console.log("Server listening on port " + PORT);

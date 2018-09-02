@@ -100,9 +100,10 @@ function getStoredItems() {
 function pasteItems() {
     var pasteData = getStoredItems();
     pasteData.newLocation = getFullItemPath();
+    pasteData.uploadType = "move";
     $.ajax({
         url: "/move",
-        method: "PUT",
+        method: "POST",
         data: pasteData,
         success: function() {
             location.reload();
