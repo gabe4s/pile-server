@@ -1,4 +1,4 @@
 {
     "serverName": "R-Pi File Server",
-    "fileSystemDirectory": "/absolute/path/to/folder"
+    "fileSystemDirectory": "C:\\Users\\brads\\Documents"
 }
