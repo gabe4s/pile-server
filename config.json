@@ -1,4 +1,5 @@
 {
     "serverName": "R-Pi File Server",
-    "fileSystemDirectory": "/absolute/path/to/folder"
+    "fileSystemDirectory": "/absolute/path/to/folder",
+    "port": "8080"
 }

@@ -5,10 +5,9 @@ var path = require("path");
 
 var fileUtils = require("./lib/file-utils.js");
 
-var PORT = 8080;
-
 var CONFIG = fileUtils.readFileToJson("config.json");
 
+var PORT = CONFIG.port;
 var BASE_DIR = CONFIG.fileSystemDirectory;
 var SERVER_NAME = CONFIG.serverName || "R-Pi File Server";
 
